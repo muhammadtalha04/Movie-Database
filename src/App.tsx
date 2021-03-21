@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Filters from './components/filters/Filters';
+import Navbar from './components/navbar/Navbar';
+import { Panel } from './components/panel/Panel';
+import { ColumnZeroPadding, DivWithShadow, MainDiv } from './Style';
+import Text from './components/text/Text';
 
-function App() {
+const App: React.FC = () => {
+  const [value, setValue] = useState("");
+
+  const filterByKeyword = (val: string) => {
+    setValue(val);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainDiv>
+      <Navbar />
+
+      <div className="mt-5 offset-sm-1">
+        <Text text={"Popular Movies"} fontSize={20} weight={"600"} />
+      </div>
+
+      <div className="mt-2 mb-5">
+        <div style={{ display: "flex", flexDirection: 'row' }}>
+
+          {/* Sidebar */}
+          <ColumnZeroPadding className="col-sm-2 offset-sm-1">
+            <DivWithShadow>
+              <Filters value={value} filterByKeyword={filterByKeyword} />
+            </DivWithShadow>
+          </ColumnZeroPadding>
+
+          {/* Main panel */}
+          <div className="col-sm-8 pl-5" style={{}}>
+            <Panel filterKeyword={value} />
+          </div>
+
+        </div>
+      </div>
+    </MainDiv>
   );
 }
 
