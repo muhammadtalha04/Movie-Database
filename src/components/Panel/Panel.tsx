@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { useFetch } from '../../hooks/useFetch';
 import { Movie } from '../../types';
 import { parseMovie } from '../../utils';
-import Card from '../card/Card';
-import { ListItem } from '../filters/Style';
+import Card from '../Card/Card';
+import { ListItem } from '../Filters/Style';
 
 // {
 //     adult: false,
@@ -58,7 +58,7 @@ export const Panel: React.FC<PanelProps> = ({ filterKeyword }) => {
     const PrevButton = (pageNum !== 1 && <ListItem as="button" onClick={handlePreviousClick} fontSize={"1.3"}>Previous</ListItem>)
 
     return (
-        <>
+        <Fragment>
             <div className="row">
                 {displayRecords(movies, cards, filterKeyword)}
             </div>
@@ -66,6 +66,6 @@ export const Panel: React.FC<PanelProps> = ({ filterKeyword }) => {
                 {PrevButton}
                 <ListItem as="button" onClick={handleNextClick} fontSize={"1.3"}>Next</ListItem>
             </div>
-        </>
+        </Fragment>
     );
 }

@@ -15,3 +15,8 @@ export const ColumnZeroPadding = styled.div`
 export const MainDiv = styled.div`
     font-family: 'Source Sans Pro', Arial, sans-serif;
 `;
+
+export const Row = styled.div`
+    display: flex;
+    flex-direction: row;
+`;

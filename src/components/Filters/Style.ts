@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface FilterProps {
+    fontSize?: string;
+}
+
 const hoverColor = "1, 180, 228";
 
 export const List = styled.ul`
@@ -7,7 +11,7 @@ export const List = styled.ul`
     padding-left: 0px;
 `;
 
-export const ListItem = styled.li.attrs(fontSize => fontSize)`
+export const ListItem = styled.li<FilterProps>`
     display: inline-flex;
     border: 1px solid #9e9e9e;
     border-radius: 14px;

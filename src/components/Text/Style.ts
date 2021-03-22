@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
-export const StyledText = styled.p
-    .attrs(fontSize => fontSize)
-    .attrs(weight => weight)
-    .attrs(subheading => subheading)
-    .attrs(color => color)`
+interface TextProps {
+    fontSize: number;
+    weight: string;
+    color?: string;
+    subheading?: boolean;
+}
+
+export const StyledText = styled.p<TextProps>`
 
     font-size: ${props => props.fontSize}pt;
     font-weight: ${props => props.weight};

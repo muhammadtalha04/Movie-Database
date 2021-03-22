@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DivWithShadow } from '../../Style';
 
 export const Img = styled.img`
     width: 100%;
@@ -28,4 +29,12 @@ export const VoteSpan = styled.span`
     padding: 5px 3px;
     border: 2px solid lightgreen;
     border-radius: 100%;
+`;
+
+export const CardDiv = styled(DivWithShadow)`
+    align-items: center;
+`;
+
+export const Sup = styled.sup`
+    font-size: 5pt;
 `;

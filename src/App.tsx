@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Filters from './components/filters/Filters';
-import Navbar from './components/navbar/Navbar';
-import { Panel } from './components/panel/Panel';
-import { ColumnZeroPadding, DivWithShadow, MainDiv } from './Style';
-import Text from './components/text/Text';
+import Filters from './components/Filters/Filters';
+import Navbar from './components/Navbar/Navbar';
+import { Panel } from './components/Panel/Panel';
+import { ColumnZeroPadding, DivWithShadow, MainDiv, Row } from './Style';
+import Text from './components/Text/Text';
+import { PAGE } from './headings';
 
 const App: React.FC = () => {
   const [value, setValue] = useState("");
@@ -14,14 +15,16 @@ const App: React.FC = () => {
 
   return (
     <MainDiv>
+
       <Navbar />
 
       <div className="mt-5 offset-sm-1">
-        <Text text={"Popular Movies"} fontSize={20} weight={"600"} />
+        <Text text={PAGE} fontSize={20} weight={"600"} />
       </div>
 
       <div className="mt-2 mb-5">
-        <div style={{ display: "flex", flexDirection: 'row' }}>
+
+        <Row>
 
           {/* Sidebar */}
           <ColumnZeroPadding className="col-sm-2 offset-sm-1">
@@ -31,12 +34,14 @@ const App: React.FC = () => {
           </ColumnZeroPadding>
 
           {/* Main panel */}
-          <div className="col-sm-8 pl-5" style={{}}>
+          <div className="col-sm-8 pl-5">
             <Panel filterKeyword={value} />
           </div>
 
-        </div>
+        </Row>
+
       </div>
+
     </MainDiv>
   );
 }
